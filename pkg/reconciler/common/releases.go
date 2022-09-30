@@ -172,8 +172,9 @@ func IsVersionValidMigrationEligible(instance base.KComponent) error {
 			"installed KnativeServing version is %v.", current)
 	}
 
+	// Remove the minor version restriction
 	// If the diff between minor versions are less than 2, return nil.
-	if abs(currentMinor-targetMinor) < 2 {
+	if abs(currentMinor-targetMinor) < 20 {
 		return nil
 	}
 
